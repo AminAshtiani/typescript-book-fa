@@ -1,8 +1,10 @@
+<div dir="rtl">
+
 ## this
 
-Any access to `this` keyword within a function is controlled by how the function is actually called. It is commonly referred to as the “calling context.”
+هرگونه دسترسی به ‍`this` داخل یک فانکشن بستگی به این داره که این فانکشن کجا و چطور داره استفاده می‌شه. معمولا به این کجا و چطور ‍`calling context` میگن.
 
-Here is an example:
+به طور مثال:
 
 ```ts
 function foo() {
@@ -15,7 +17,8 @@ let bar = {
 }
 bar.foo(); // Logs out `bar` as `foo` was called on `bar`
 ```
-
-So be mindful of your usage of `this`. If you want to disconnect `this` in a class from the calling context use an arrow function, [more on that later][arrow].
+بنابراین حواسمون باید به استفاده از `this` باشه. مثلا وقتی داریم از ‍`this` داخل متدهای یه کلاس استفاده می‌کنیم برای اینکه ارتباط `this` با `calling context` رو قطع کنیم و `this` دقیقا به کلاس اشاره کنه باید از `bind` داخل سازنده کلاس استفاده کنیم یا از `arrow function` استفاده کنیم. [در این مورد بیشتر بخونید][arrow].
 
 [arrow]:../arrow-functions.md
+
+</div>
