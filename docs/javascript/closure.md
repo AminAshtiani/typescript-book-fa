@@ -1,6 +1,8 @@
+<div dir="rtl">
+
 ## Closure
 
-The best thing that JavaScript ever got was closures. A function in JavaScript has access to any variables defined in the outer scope. Closures are best explained with examples:
+بهترین چیزی که جاوااسکریپت تاحالا داشته، ‍`closure‍‍` هستش. یه فانکشن در جاوااسکریپت که به هر متغییر خارج از اسکوپ خودش دسترسی داره. اما فهمیدن کلوژر با این یه جمله امکان پذیر نیست و بهتره که یه مثال در این مورد ببینیم:
 
 ```ts
 function outerFunction(arg) {
@@ -16,10 +18,9 @@ function outerFunction(arg) {
 
 outerFunction("hello closure"); // logs hello closure!
 ```
+ واضحه که فانکشن داخلی به یه متغییر (variableInOuterFunction) از اسکوپ بیرون دسترسی داره. متغییری که در اسکوپ بیرونی تعریف شده به فانکشن داخلی وصله (bound in)  به همین خاطره که به این مفهوم میگن **closure**. خود این مفهوم به اندازه کافی ساده و شهودیه.
 
-You can see that the inner function has access to a variable (variableInOuterFunction) from the outer scope. The variables in the outer function have been closed by (or bound in) the inner function. Hence the term **closure**. The concept in itself is simple enough and pretty intuitive.
-
-Now the awesome part: The inner function can access the variables from the outer scope *even after the outer function has returned*. This is because the variables are still bound in the inner function and not dependent on the outer function. Again let's look at an example:
+حالا نکته جالبتر : فانکشن داخلی به متغییر خارج از اسکوپ خودش دسترسی داره *حتی بعد اینکه فانکشن بیرونی return شده یا به عبارتی terminate شده*. این به این خاطره که متغییر به فاکنش داخلی وصل شده و دیگه به فانکشن بیرون وابسته نیست. دوباره به یه مثال توجه کنید:
 
 ```ts
 function outerFunction(arg) {
@@ -35,8 +36,8 @@ var innerFunction = outerFunction("hello closure!");
 innerFunction(); // logs hello closure!
 ```
 
-### Reason why it's awesome
-It allows you to compose objects easily e.g. the revealing module pattern:
+### ولی چرا این موضوع خیلی خفنه؟
+این قابلیت به شما اجازه میده به راحتی آبجکت بسازید به طور مثال [‍revealing module pattern](https://medium.com/@Rahulx1/revealing-module-pattern-tips-e3442d4e352) رو در نظر بگیرید.
 
 ```ts
 function createCounter() {
@@ -53,8 +54,7 @@ console.log(counter.getVal()); // 1
 counter.increment();
 console.log(counter.getVal()); // 2
 ```
-
-At a high level it is also what makes something like Node.js possible (don't worry if it doesn't click in your brain right now. It will eventually 🌹):
+اگه بخوایم نمونه های بزرتر رو مثال بزنیم closure باعث میشه چیزی مثل nodejs امکان پذیر باشه به طور مثال نمونه کد زیر برای ساخت یه سرور nodejs استفاده میشه.
 
 ```ts
 // Pseudo code to explain the concept
@@ -65,3 +65,5 @@ server.on(function handler(req, res) {
     })
 });
 ```
+
+</div>
