@@ -1,16 +1,17 @@
+<div dir="rtl">
+
 ## Truthy
 
-JavaScript has a concept of `truthy` i.e. things that evaluate like `true` would in certain positions (e.g. `if` conditions and the boolean `&&` `||` operators). The following things are truthy in JavaScript. An example is any number other than `0` e.g.
+جاوااسکریپت یه مفهومی داره به اسم `truthy`. همونطور که میدونید مقادیر مختلف توی یه سری جاها به `true` تبدیل میشن مثل وقتی که داریم از `if` یا عملگرهای `||` و `&&` استفاده می کنیم. به این چیزا توی جاوااسکریپت میگیم `truthy`. به طور مثال تمام اعداد غیر از صفر `truthy` هستن.
 
 ```ts
 if (123) { // Will be treated like `true`
   console.log('Any number other than 0 is truthy');
 }
 ```
+و هر چیزی که `truthy` نیست رو بهش میگیم `falsy`.
 
-Something that isn't truthy is called `falsy`.
-
-Here's a handy table for your reference.
+برای اینکه یه مرجعی داشته باشید که چی truthy هست و چی نیست از جدول زیر میتونید استفاده کنید..
 
 | Variable Type   | When it is *falsy*       | When it is *truthy*      |
 |-----------------|--------------------------|--------------------------|
@@ -19,16 +20,16 @@ Here's a handy table for your reference.
 | `number`        | `0`  `NaN`               | any other number         |
 | `null`          | always                   | never                    |
 | `undefined`     | always                   | never                    |
-| Any other Object including empty ones like `{}`,`[]` | never | always |
+| هر آبجکتی به جز  `{}`,`[]` | never | always |
 
 
-### Being explicit
+### being explicit (واقعا معنای خوبی براش پیدا نکردم)
 
 > The `!!` pattern
 
-Quite commonly it helps to be explicit that the intent is to treat the value as a `boolean` and convert it into a *true boolean* (one of `true`|`false`). You can easily convert values to a true boolean by prefixing it with `!!` e.g. `!!foo`. Its just `!` used *twice*. The first `!` converts the variable (in this case `foo`) to a boolean but inverts the logic (*truthy* -`!`> `false`, *falsy* -`!`> `true`). The second one toggles it again to match the nature of the original object (e.g. *truthy* -`!`> `false` -`!`> `true`).
+خیلی متداوله که شما به صورت ضمنی و با یه هدفی بخوای با یه مقداری به صورت `boolean` رفتار کنی و به یه `boolean` واقعی تبدیلش کنی. یعنی واقعا true یا false باشه . برای اینکه این تبدیل رو انجام بدی لازمه که قبل اسم متغییرت `!!` رو بزاری. در اصل داریم از عملگر`!` دوبار پشت سر هم استفاده میکنیم. دفعه اول مقدار متغییر ما به `boolean` تبدیل میشه اما با مقدار مخالفش. یعنی اگر `truthy` بوده به false واگر `falsy` بوده به true تبدیل میشه. وقتی برای بار دوم ازش استفاده میکنیم هر مقداری رو که داریم دوباره toggle میکنیم و به مقدار واقعی میرسیم.
 
-It is common to use this pattern in lots of places e.g.
+استفاده از این پترن تو خیلی از جاها متداوله.
 
 ```js
 // Direct variables
@@ -42,3 +43,5 @@ const someObj = {
 // e.g. in ReactJS JSX
 {!!someName && <div>{someName}</div>}
 ```
+
+</div>
